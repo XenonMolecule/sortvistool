@@ -7,16 +7,18 @@
 
 import React from "react"
 import PropTypes from "prop-types"
+import './layout.css'
 
 import Header from "./header"
+import Footer from "./footer"
 
 const Layout = ({ children }) => {
 
   return (
     <>
-      <Header />
+      <Header siteTitle={'Sort Visualization Tool'}/>
       <main>{children}</main>
-      <footer/>
+      <Footer/>
     </>
   )
 }
