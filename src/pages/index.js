@@ -4,7 +4,6 @@ import Layout from "../components/layout"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SortNav from "../components/sortnav"
 import { Container } from "react-bootstrap"
-import Row from "react-bootstrap/Row"
 
 const IndexPage = (props) => {
 

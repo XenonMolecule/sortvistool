@@ -33,6 +33,17 @@ class SortTable extends React.Component {
     return output;
   }
 
+  determineHighlight(i) {
+    let style = {'textAlign' : 'center'};
+    if (this.props.index <= 0) {
+      return style;
+    }
+    if (this.state.history[this.props.index][i] !== this.state.history[this.props.index-1][i]){
+      style['backgroundColor'] = '#fc97bb';
+    }
+    return style;
+  }
+
   render() {
     const currSequence = this.state.history[this.props.index];
     let headers = [];
@@ -40,7 +51,7 @@ class SortTable extends React.Component {
     let pointers = [];
     for(let i = 0; i < currSequence.length; i ++) {
       headers.push(<th key={i} style={{'textAlign':'center'}}>{i}</th>);
-      rows.push(<td key={currSequence[i]} style={{'textAlign':'center'}}>{currSequence[i]}</td>);
+      rows.push(<td key={currSequence[i]} style={this.determineHighlight(i)}>{currSequence[i]}</td>);
       pointers.push(<td key={i} style={{'textAlign':'center'}}>{this.determinePointerCombo(i)}</td>);
     }
     return (
