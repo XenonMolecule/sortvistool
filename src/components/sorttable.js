@@ -17,7 +17,6 @@ class SortTable extends React.Component {
       index+=12;
     }
     this.state = {
-      index: 0,
       history: history,
       swapHist: swapHist,
     }
@@ -25,17 +24,17 @@ class SortTable extends React.Component {
 
   determinePointerCombo(i) {
     let output = [];
-    if(this.state.history[this.state.index][i] === this.state.swapHist[this.state.index][0]) {
+    if(this.state.history[this.props.index][i] === this.state.swapHist[this.props.index][0]) {
       output.push(<FontAwesomeIcon icon={faAngleUp} style={{'color':'red'}}/>)
     }
-    if(this.state.history[this.state.index][i] === this.state.swapHist[this.state.index][1]) {
+    if(this.state.history[this.props.index][i] === this.state.swapHist[this.props.index][1]) {
       output.push(<FontAwesomeIcon icon={faAngleUp} style={{'color':'blue'}}/>)
     }
     return output;
   }
 
   render() {
-    const currSequence = this.state.history[this.state.index];
+    const currSequence = this.state.history[this.props.index];
     let headers = [];
     let rows = [];
     let pointers = [];
