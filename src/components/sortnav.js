@@ -16,6 +16,10 @@ class SortNav extends React.Component {
     }
   }
 
+  maxedSteps() {
+    return this.state.step >= (Math.floor((this.state.sequence.length - 10)/12));
+  }
+
   render() {
     return (
       <Container>
@@ -25,7 +29,8 @@ class SortNav extends React.Component {
                      index = {this.state.step}/>
         </Row>
         <Row className={'justify-content-center'}>
-          <p>{"Comparisons: " + (this.state.step + 1)}</p>
+          <p>{"Comparisons: " + (this.maxedSteps() ?
+            (this.state.step + " - FINAL") : (this.state.step + 1))}</p>
         </Row>
         <Row>
           <Col>
@@ -46,7 +51,7 @@ class SortNav extends React.Component {
                 this.setState({
                   step: this.state.step + 1,
                 });
-              }} disabled = {this.state.step >= (Math.floor((this.state.sequence.length - 10)/12) - 1)}> Next </Button>
+              }} disabled = {this.maxedSteps()}> Next </Button>
             </Row>
           </Col>
         </Row>

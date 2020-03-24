@@ -16,6 +16,7 @@ class SortTable extends React.Component {
       history.push(props.sequence.slice(index+2,index+12));
       index+=12;
     }
+    swapHist.push(swapHist[swapHist.length - 1]);
     this.state = {
       history: history,
       swapHist: swapHist,
@@ -51,7 +52,7 @@ class SortTable extends React.Component {
     let pointers = [];
     for(let i = 0; i < currSequence.length; i ++) {
       headers.push(<th key={i} style={{'textAlign':'center'}}>{i}</th>);
-      rows.push(<td key={currSequence[i]} style={this.determineHighlight(i)}>{currSequence[i]}</td>);
+      rows.push(<td key={i} style={this.determineHighlight(i)}>{currSequence[i]}</td>);
       pointers.push(<td key={i} style={{'textAlign':'center'}}>{this.determinePointerCombo(i)}</td>);
     }
     return (
