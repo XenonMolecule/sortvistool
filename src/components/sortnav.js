@@ -10,9 +10,15 @@ class SortNav extends React.Component {
   constructor(props) {
     super(props);
 
+    let seq = this.props.sequence;
+
+    if (!seq || seq.length < 22) {
+      seq = "0123456789010123456789";
+    }
+
     this.state = {
       step: 0,
-      sequence: this.props.sequence,
+      sequence: seq,
     }
   }
 
